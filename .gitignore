@@ -3,3 +3,7 @@
 ################################################################################
 
 /packages/FluentAssertions.4.19.4
+/WebForms.MVVM/bin/Debug
+/WebForms.MVVM/obj/Debug
+/WebForms.MVVM.Test/bin/Debug
+/WebForms.MVVM.Test/obj/Debug
