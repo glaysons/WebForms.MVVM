@@ -22,9 +22,6 @@ namespace WebForms.MVVM.Test.Framework
 			componente
 				.Should().NotBeNull();
 
-			componente.Titulo
-				.Should().Be("Família de Itens");
-
 			componente.CampoDados
 				.Should().Be("CodFamiliaItens");
 		}

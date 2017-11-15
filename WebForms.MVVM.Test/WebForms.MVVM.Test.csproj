@@ -91,6 +91,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebForms.MVVM.Attributes\WebForms.MVVM.Attributes.csproj">
+      <Project>{40ce2bf7-05da-448c-a768-93907ee6379d}</Project>
+      <Name>WebForms.MVVM.Attributes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebForms.MVVM\WebForms.MVVM.csproj">
       <Project>{3B27944A-5400-4520-B175-BB68BFDCAB5F}</Project>
       <Name>WebForms.MVVM</Name>

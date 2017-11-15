@@ -14,3 +14,7 @@
 /WebForms.MVVM.Sample/bin
 /WebForms.MVVM.Sample/obj
 /packages/WebForms.MVVM.1.0.1
+/WebForms.MVVM.Attributes/bin/Release
+/WebForms.MVVM.Attributes/obj/Release
+/packages/WebForms.MVVM.1.0.2
+/packages

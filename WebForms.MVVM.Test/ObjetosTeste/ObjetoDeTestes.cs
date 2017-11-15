@@ -6,7 +6,7 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 	public class ObjetoDeTestes
 	{
 
-		[Componente(Titulo = "Família de Itens", CampoDados = "CodFamiliaItens")]
+		[Componente(CampoDados = "CodFamiliaItens")]
 		public int CodigoFamiliaItens { get; set; }
 
 		[Componente(CampoDados = "opcaoNumerica")]
