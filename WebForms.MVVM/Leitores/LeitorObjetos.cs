@@ -28,10 +28,10 @@ namespace WebForms.MVVM.Leitores
 				return ConsultarValorDoObjetoPersonalizado((IControlePesquisa)objeto, textoRelacionado);
 
 			if (objeto is WebControl)
-				return ConsultarValorDoObjetoWebControl(objeto);
+				return ConsultarValorDoObjetoWebControl(objeto, textoRelacionado);
 
 			if (objeto is HtmlControl)
-				return ConsultarValorDoObjetoHtmlControl(objeto);
+				return ConsultarValorDoObjetoHtmlControl(objeto, textoRelacionado);
 
 			throw new Exception("Não é possível realizar a leitura de valores de objetos do tipo [" + objeto.GetType().Name + "]");
 		}
@@ -43,7 +43,7 @@ namespace WebForms.MVVM.Leitores
 			return objeto.Valor;
 		}
 
-		private static object ConsultarValorDoObjetoWebControl(Control objeto)
+		private static object ConsultarValorDoObjetoWebControl(Control objeto, bool textoRelacionado)
 		{
 			if (objeto is TextBox)
 				return ((TextBox)objeto).Text;
@@ -51,14 +51,13 @@ namespace WebForms.MVVM.Leitores
 			if (objeto is CheckBox)
 				return ((CheckBox)objeto).Checked;
 
-			if (objeto is RadioButtonList)
-				return ((RadioButtonList)objeto).SelectedValue;
-
-			if (objeto is DropDownList)
-				return ((DropDownList)objeto).SelectedValue;
-
-			if (objeto is ListBox)
-				return ((ListBox)objeto).SelectedValue;
+			if (objeto is ListControl)
+			{
+				var lista = ((ListControl)objeto);
+				if (textoRelacionado)
+					return lista.SelectedItem?.Text ?? string.Empty;
+				return lista.SelectedValue;
+			}
 
 			if (objeto is HiddenField)
 				return ((HiddenField)objeto).Value;
@@ -67,12 +66,17 @@ namespace WebForms.MVVM.Leitores
 				return ((Label)objeto).Text;
 
 			if (objeto is FileUpload)
+			{
+				var arquivo = ((FileUpload)objeto);
+				if (textoRelacionado)
+					return arquivo.FileName;
 				return ((FileUpload)objeto).FileContent;
+			}
 
 			throw new Exception("O tipo WebControl [" + objeto.GetType().Name + "] não é suportado!");
 		}
 
-		private static object ConsultarValorDoObjetoHtmlControl(Control objeto)
+		private static object ConsultarValorDoObjetoHtmlControl(Control objeto, bool textoRelacionado)
 		{
 			if (objeto is HtmlInputHidden)
 				return ((HtmlInputHidden)objeto).Value;
@@ -83,8 +87,27 @@ namespace WebForms.MVVM.Leitores
 			if (objeto is HtmlInputCheckBox)
 				return ((HtmlInputCheckBox)objeto).Value;
 
+			if (objeto is HtmlSelect)
+			{
+				var dropdown = ((HtmlSelect)objeto);
+				if (dropdown.SelectedIndex > -1)
+				{
+					if (textoRelacionado)
+						return dropdown.Items[dropdown.SelectedIndex].Text;
+					return dropdown.Items[dropdown.SelectedIndex].Value;
+				}
+				if (textoRelacionado)
+					return string.Empty;
+				return null;
+			}
+
 			if (objeto is HtmlInputFile)
-				return ((HtmlInputFile)objeto).PostedFile.InputStream;
+			{
+				var arquivo = ((HtmlInputFile)objeto).PostedFile;
+				if (textoRelacionado)
+					return arquivo.FileName;
+				return arquivo.InputStream;
+			}
 
 			if (objeto is HtmlInputPassword)
 				return ((HtmlInputPassword)objeto).Value;

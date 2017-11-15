@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WebForms MVVM")]
-[assembly: AssemblyDescription("WebForms.MVVM é um conjunto de ferramentas que permite tratar os componentes do WebForms de aplicações legadas como **ValueObjects**.")]
+[assembly: AssemblyTitle("WebForms.MVVM.Sample")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Glayson Sergio")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Copyright © Glayson Sergio 2017")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("WebForms.MVVM.Sample")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3b27944a-5400-4520-b175-bb68bfdcab5f")]
+[assembly: Guid("b713304f-2473-49cd-8c51-97bc62247cc1")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -29,8 +29,7 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

@@ -59,14 +59,8 @@ namespace WebForms.MVVM.Atualizadores
 			else if (objeto is CheckBox)
 				((CheckBox)objeto).Checked = Convert.ToBoolean(valor);
 
-			else if (objeto is RadioButtonList)
-				((RadioButtonList)objeto).SelectedValue = Convert.ToString(valor);
-
-			else if (objeto is DropDownList)
-				((DropDownList)objeto).SelectedValue = Convert.ToString(valor);
-
-			else if (objeto is ListBox)
-				((ListBox)objeto).SelectedValue = Convert.ToString(valor);
+			else if (objeto is ListControl)
+				((ListControl)objeto).SelectedValue = Convert.ToString(valor);
 
 			else if (objeto is Label)
 				((Label)objeto).Text = Convert.ToString(valor);

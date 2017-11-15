@@ -9,10 +9,17 @@ WebForms.MVVM é um conjunto de ferramentas que permite tratar os componentes do
  - Conversão e atualização de **DataGrid** como um **IList**
  - Nome do atributo de vinculo **ASPX <-> ValueObject** personalizável
  - Você pode preencher uma tela a partir de DataRow/DataTable
- - Transformação automática de enumerações com valores numéricos/texto para os controles
  - Permite o acesso às propriedades de layout de forma a permitir **Testes Automatizados**
 
 ## Como Utilizar ##
+
+### Instalar ###
+
+Disponível via **nuget**.
+
+```
+  PM> Install-Package WebForms.MVVM
+```
 
 ### Definir os Objetos ###
 
@@ -25,14 +32,19 @@ Cada componente do ASPX deve ser relacionado com uma propriedade do **ValueObjec
   public class ObjetoDaTela
   {
 
+    [Componente()]
     public string Nome { get; set; }
 
+    [Componente()]
     public int? Idade { get; set; }
 
+    [Componente()]
     public string Endereco { get; set; }
 
+    [Componente()]
     public int CodigoCidade { get; set; }
 
+    [Componente()]
     public RegistroCivil EstadoCivil { get; set; }
 
     [Componente(PropriedadeDePesquisa = "CodigoCidade")]
