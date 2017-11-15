@@ -49,6 +49,18 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebForms.MVVM, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebForms.MVVM.1.0.5\lib\net\WebForms.MVVM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebForms.MVVM.Attributes, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebForms.MVVM.Attributes.1.0.5\lib\net\WebForms.MVVM.Attributes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebForms.MVVM.Interfaces, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebForms.MVVM.Interfaces.1.0.5\lib\net\WebForms.MVVM.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -89,16 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebForms.MVVM.Attributes\WebForms.MVVM.Attributes.csproj">
-      <Project>{40ce2bf7-05da-448c-a768-93907ee6379d}</Project>
-      <Name>WebForms.MVVM.Attributes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebForms.MVVM\WebForms.MVVM.csproj">
-      <Project>{3B27944A-5400-4520-B175-BB68BFDCAB5F}</Project>
-      <Name>WebForms.MVVM</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Choose>

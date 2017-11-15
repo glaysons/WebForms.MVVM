@@ -1,6 +1,4 @@
-﻿using System.Web.UI;
-
-namespace WebForms.MVVM.Interfaces
+﻿namespace WebForms.MVVM.Interfaces
 {
 	public interface ILayoutObjeto
 	{
@@ -11,7 +9,7 @@ namespace WebForms.MVVM.Interfaces
 
 		string CssClass { get; set; }
 
-		Control Controle { get; }
+		object Controle { get; }
 
 		string ConsultarAtributo(string nome);
 

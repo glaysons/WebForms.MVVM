@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("WebForms.MVVM é um conjunto de ferramentas que permite tratar os componentes do WebForms de aplicações legadas como **ValueObjects**.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Glayson Sergio")]
-[assembly: AssemblyProduct("")]
+[assembly: AssemblyProduct("WebForms.MVVM.Interfaces")]
 [assembly: AssemblyCopyright("Copyright © Glayson Sergio 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("40ce2bf7-05da-448c-a768-93907ee6379d")]
+[assembly: Guid("c2ab0baa-565a-4773-a67a-4a5a065b118f")]
 
 // Version information for an assembly consists of the following four values:
 //

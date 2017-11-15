@@ -110,7 +110,7 @@ namespace WebForms.MVVM.Layouts
 			set { _componente.Visible = value; }
 		}
 
-		public Control Controle
+		public object Controle
 		{
 			get { return _componente; }
 		}

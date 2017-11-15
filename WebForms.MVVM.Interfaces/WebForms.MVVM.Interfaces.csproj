@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B27944A-5400-4520-B175-BB68BFDCAB5F}</ProjectGuid>
+    <ProjectGuid>{C2AB0BAA-565A-4773-A67A-4A5A065B118F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebForms.MVVM</RootNamespace>
-    <AssemblyName>WebForms.MVVM</AssemblyName>
+    <RootNamespace>WebForms.MVVM.Interfaces</RootNamespace>
+    <AssemblyName>WebForms.MVVM.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,45 +28,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WebForms.MVVM.Attributes, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Attributes.1.0.5\lib\net\WebForms.MVVM.Attributes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WebForms.MVVM.Interfaces, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Interfaces.1.0.5\lib\net\WebForms.MVVM.Interfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Atualizadores\AtualizadorEnum.cs" />
-    <Compile Include="Atualizadores\AtualizadorGrade.cs" />
-    <Compile Include="Atualizadores\AtualizadorObjetos.cs" />
-    <Compile Include="AtualizadorTela.cs" />
-    <Compile Include="Framework\Comparador.cs" />
-    <Compile Include="Framework\Consultador.cs" />
-    <Compile Include="DicionarioTela.cs" />
-    <Compile Include="Layouts\LayoutObjeto.cs" />
-    <Compile Include="LayoutTela.cs" />
-    <Compile Include="Leitores\LeitorEnum.cs" />
-    <Compile Include="Leitores\LeitorGrade.cs" />
-    <Compile Include="Leitores\LeitorObjetos.cs" />
-    <Compile Include="Leitores\LeitorRegistros.cs" />
-    <Compile Include="LeitorTela.cs" />
+    <Compile Include="IControleEditavel.cs" />
+    <Compile Include="IControlePesquisa.cs" />
+    <Compile Include="IControleTitulo.cs" />
+    <Compile Include="ILayoutObjeto.cs" />
+    <Compile Include="ILayoutTela.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
