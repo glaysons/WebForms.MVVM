@@ -42,7 +42,7 @@ namespace WebForms.MVVM.Atualizadores
 			var propriedadesDoItemDaLista = tipoDoItem.GetProperties();
 			var componentesDoItemDaLista = Consultador.ConsultarConfiguracaoDasPropriedades(propriedadesDoItemDaLista);
 
-			using (DataTable tabela = ConverterListaEmDataTable(componentesDoItemDaLista, objetos.Count))
+			using (var tabela = ConverterListaEmDataTable(componentesDoItemDaLista, objetos.Count))
 			{
 				grade.DataSource = tabela;
 				grade.DataBind();

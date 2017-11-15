@@ -31,21 +31,23 @@
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>WebForms.MVVM.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WebForms.MVVM.Attributes, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Attributes.1.0.5\lib\net\WebForms.MVVM.Attributes.dll</HintPath>
+    <Reference Include="System.XML" />
+    <Reference Include="WebForms.MVVM.Attributes, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebForms.MVVM.Attributes.1.0.6\lib\net\WebForms.MVVM.Attributes.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebForms.MVVM.Interfaces, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Interfaces.1.0.5\lib\net\WebForms.MVVM.Interfaces.dll</HintPath>
+    <Reference Include="WebForms.MVVM.Interfaces, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebForms.MVVM.Interfaces.1.0.6\lib\net\WebForms.MVVM.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -68,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="WebForms.MVVM.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

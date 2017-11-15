@@ -49,16 +49,16 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WebForms.MVVM, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.1.0.5\lib\net\WebForms.MVVM.dll</HintPath>
+    <Reference Include="WebForms.MVVM, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebForms.MVVM.1.0.6\lib\net\WebForms.MVVM.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebForms.MVVM.Attributes, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Attributes.1.0.5\lib\net\WebForms.MVVM.Attributes.dll</HintPath>
+    <Reference Include="WebForms.MVVM.Attributes, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebForms.MVVM.Attributes.1.0.6\lib\net\WebForms.MVVM.Attributes.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebForms.MVVM.Interfaces, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Interfaces.1.0.5\lib\net\WebForms.MVVM.Interfaces.dll</HintPath>
+    <Reference Include="WebForms.MVVM.Interfaces, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebForms.MVVM.Interfaces.1.0.6\lib\net\WebForms.MVVM.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
