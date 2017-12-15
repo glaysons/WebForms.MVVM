@@ -90,7 +90,10 @@ namespace WebForms.MVVM.Leitores
 					{
 						try
 						{
-							valorDaColuna = Convert.ChangeType(itemDaGrade.Cells[indiceColuna].Text, propriedade.PropertyType);
+							if (Comparador.EhCampoNullable(propriedade.PropertyType))
+								valorDaColuna = Convert.ChangeType(itemDaGrade.Cells[indiceColuna].Text, Consultador.ConsultarTipoEspecificoDaPropriedadeGenerica(propriedade));
+							else
+								valorDaColuna = Convert.ChangeType(itemDaGrade.Cells[indiceColuna].Text, propriedade.PropertyType);
 						}
 						catch
 						{

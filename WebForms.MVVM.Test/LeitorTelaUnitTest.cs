@@ -94,6 +94,13 @@ namespace WebForms.MVVM.Test
 				grupo.NomeGrupoItens
 					.Should().Be(string.Concat("Grupo número ", indice));
 
+				if (indice % 2 == 0)
+					grupo.UmNumeroQualquer
+						.Should().Be(indice * 10);
+				else
+					grupo.UmNumeroQualquer
+						.Should().BeNull();
+
 				grupo.CodigoItemPrincipal
 					.Should().Be(indice * 10);
 			}

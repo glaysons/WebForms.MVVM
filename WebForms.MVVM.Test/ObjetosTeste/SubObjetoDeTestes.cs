@@ -11,6 +11,9 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 		[Componente(CampoDados = "NomeGrupoItens")]
 		public string NomeGrupoItens { get; set; }
 
+		[Componente(CampoDados = "Numero")]
+		public int? UmNumeroQualquer { get; set; }
+
 		[Componente(CampoDados = "CodItem", GradeComComponente = true)]
 		public int? CodigoItemPrincipal { get; set; }
 

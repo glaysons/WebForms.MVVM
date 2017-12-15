@@ -49,18 +49,6 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WebForms.MVVM, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.1.0.6\lib\net\WebForms.MVVM.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WebForms.MVVM.Attributes, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Attributes.1.0.6\lib\net\WebForms.MVVM.Attributes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WebForms.MVVM.Interfaces, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Interfaces.1.0.6\lib\net\WebForms.MVVM.Interfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -102,7 +90,20 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WebForms.MVVM.Attributes\WebForms.MVVM.Attributes.csproj">
+      <Project>{40ce2bf7-05da-448c-a768-93907ee6379d}</Project>
+      <Name>WebForms.MVVM.Attributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebForms.MVVM.Interfaces\WebForms.MVVM.Interfaces.csproj">
+      <Project>{c2ab0baa-565a-4773-a67a-4a5a065b118f}</Project>
+      <Name>WebForms.MVVM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebForms.MVVM\WebForms.MVVM.csproj">
+      <Project>{3b27944a-5400-4520-b175-bb68bfdcab5f}</Project>
+      <Name>WebForms.MVVM</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

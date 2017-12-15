@@ -76,6 +76,7 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 		{
 			grupos.Columns.Add(new BoundColumn() { DataField = "CodGrupoItens", HeaderText = "Cod." });
 			grupos.Columns.Add(new BoundColumn() { DataField = "NomeGrupoItens", HeaderText = "Nome" });
+			grupos.Columns.Add(new BoundColumn() { DataField = "Numero", HeaderText = "Um Número Qualquer" });
 			grupos.Columns.Add(CriarColunaTemplateComControleItem());
 			grupos.ItemDataBound += Grupos_ItemDataBound;
 		}
@@ -179,6 +180,7 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 			var tabela = new DataTable();
 			tabela.Columns.Add("CodGrupoItens", typeof(int));
 			tabela.Columns.Add("NomeGrupoItens", typeof(string));
+			tabela.Columns.Add("Numero", typeof(int));
 			tabela.Columns.Add("CodItem", typeof(int));
 			for (int grupo = 1; grupo <= quantidadeGrupos; grupo++)
 			{
@@ -186,6 +188,8 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 				registro["CodGrupoItens"] = grupo;
 				registro["NomeGrupoItens"] = string.Concat("Grupo número ", grupo);
 				registro["CodItem"] = grupo * 10;
+				if (grupo % 2 == 0)
+					registro["Numero"] = grupo * 10;
 				tabela.Rows.Add(registro);
 			}
 			return tabela;

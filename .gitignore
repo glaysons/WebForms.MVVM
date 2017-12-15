@@ -20,3 +20,7 @@
 /packages
 /WebForms.MVVM.Interfaces/bin/Release
 /WebForms.MVVM.Interfaces/obj/Release
+/WebForms.MVVM.Attributes/bin/Debug
+/WebForms.MVVM.Attributes/obj/Debug
+/WebForms.MVVM.Interfaces/bin/Debug
+/WebForms.MVVM.Interfaces/obj/Debug

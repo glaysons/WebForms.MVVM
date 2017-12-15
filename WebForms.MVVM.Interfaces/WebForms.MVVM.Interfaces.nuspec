@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="2.12">
+        <id>WebForms.MVVM.Interfaces</id>
+        <version>$version$</version>
+        <title>WebForms MVVM Interfaces</title>
+        <authors>Glayson Sergio</authors>
+        <owners>Glayson Sergio</owners>
+        <projectUrl>https://github.com/glaysons/WebForms.MVVM</projectUrl>
+        <iconUrl>https://github.com/glaysons/WebForms.MVVM/blob/master/WebFormsMVVMicon.min.png?raw=true</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>WebForms.MVVM é um conjunto de ferramentas que permite tratar os componentes do WebForms de aplicações legadas como **ValueObjects**.</description>
+        <copyright>Copyright © Glayson Sergio 2017</copyright>
+        <tags>webform mvvm value object</tags>
+    </metadata>
+</package>
