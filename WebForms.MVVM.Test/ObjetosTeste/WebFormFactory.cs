@@ -33,8 +33,8 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 			pagina.Controls.Add(new ComponenteTitulo() { ID = "lblOpcaoTexto" }.Tag("OpcaoTexto"));
 			pagina.Controls.Add(new RadioButtonList() { ID = "radOpcaoTexto" }.Tag("OpcaoTexto"));
 
-			pagina.Controls.Add(new ComponenteTitulo() { ID = "lblGrupoItens" }.Tag("CodigoGrupoItens"));
-			pagina.Controls.Add(new ComponentePesquisa() { ID = "txtGrupoItens" }.Tag("CodigoGrupoItens"));
+			pagina.Controls.Add(new ComponenteTitulo() { ID = "lblGrupoItens" }.Tag("GruposItens.CodigoGrupoItens"));
+			pagina.Controls.Add(new ComponentePesquisa() { ID = "txtGrupoItens" }.Tag("GruposItens.CodigoGrupoItens"));
 
 			pagina.Controls.Add(new DataGrid() { ID = "grdGrupos", AutoGenerateColumns = false }.Tag("GruposItens"));
 			var grupos = (DataGrid)pagina.FindControl("grdGrupos");

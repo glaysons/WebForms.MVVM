@@ -66,6 +66,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Atualizadores\AtualizadorEnumUnitTest.cs" />
+    <Compile Include="Framework\ExpressionHelperUnitTest.cs" />
     <Compile Include="ObjetosTeste\ColunaTemplate.cs" />
     <Compile Include="ObjetosTeste\ComponentePesquisa.cs">
       <SubType>ASPXCodeBehind</SubType>

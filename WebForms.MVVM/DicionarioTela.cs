@@ -14,6 +14,7 @@ namespace WebForms.MVVM
 
 		private IDictionary<string, IList<Control>> _dicionario;
 		private string _nomeTag;
+		private string _caminhoRaiz;
 
 		public IDictionary<string, IList<Control>> Dicionario
 		{
@@ -59,7 +60,7 @@ namespace WebForms.MVVM
 
 		private string ConsultarChave(string propriedade, ComponenteAttribute componente = null)
 		{
-			return (componente?.PropriedadeDePesquisa ?? propriedade).Trim().ToLower();
+			return (string.Concat(_caminhoRaiz, componente?.PropriedadeDePesquisa ?? propriedade)).Trim().ToLower();
 		}
 
 		public IControleTitulo ConsultarComponenteTitulo(string propriedade)
@@ -96,7 +97,7 @@ namespace WebForms.MVVM
 
 		private string ConsultarChave(PropertyInfo propriedade, ComponenteAttribute componente = null)
 		{
-			return (componente?.PropriedadeDePesquisa ?? propriedade.Name).Trim().ToLower();
+			return (string.Concat(_caminhoRaiz, componente?.PropriedadeDePesquisa ?? propriedade.Name)).Trim().ToLower();
 		}
 
 		public Control ConsultarComponenteEditor(string propriedade)
@@ -153,6 +154,17 @@ namespace WebForms.MVVM
 			}
 
 			return null;
+		}
+
+		public void AtivarCaminhoRaiz(string caminho)
+		{
+			if (!string.IsNullOrEmpty(caminho))
+				_caminhoRaiz = caminho + ".";
+		}
+
+		public void DesativarCaminhoRaiz()
+		{
+			_caminhoRaiz = null;
 		}
 
 	}

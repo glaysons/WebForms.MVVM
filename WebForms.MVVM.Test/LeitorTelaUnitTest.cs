@@ -113,5 +113,54 @@ namespace WebForms.MVVM.Test
 				.Should()
 				.Be(EnumStringDeTestes.OpcaoC);
 		}
+
+		[TestMethod]
+		public void SeFizerLeituraDeSubObjetosDeveLocalizarComponentesCorretamente()
+		{
+			var pagina = WebFormFactory.CriarPaginaDeTestesPreenchidaDoObjetoDeTestes(
+				familiaItens: 654,
+				quantidadeGrupos: 3,
+				quantidadeDeAnos: 8);
+
+			var dicionario = new DicionarioTela(pagina, WebFormFactory.NOMETAG);
+
+			pagina
+				.Should()
+				.NotBeNull();
+
+			var componente = (ComponentePesquisa)pagina.FindControl("txtGrupoItens");
+			componente
+				.Should().NotBeNull();
+
+			componente.Valor = "456";
+
+			var leitor = new LeitorTela(dicionario);
+
+			var subObjeto = leitor.Ler<ObjetoDeTestes, SubObjetoDeTestes>(o => o.GruposItens);
+
+			subObjeto
+				.Should()
+				.NotBeNull()
+				.And
+				.BeOfType<SubObjetoDeTestes>();
+
+			subObjeto.CodigoGrupoItens
+				.Should()
+				.Be(456);
+
+
+			var objeto = leitor.Ler<ObjetoDeTestes>();
+
+			objeto
+				.Should()
+				.NotBeNull()
+				.And
+				.BeOfType<ObjetoDeTestes>();
+
+			objeto.CodigoFamiliaItens
+				.Should()
+				.Be(654);
+		}
+
 	}
 }

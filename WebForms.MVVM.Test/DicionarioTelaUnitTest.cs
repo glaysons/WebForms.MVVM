@@ -31,7 +31,7 @@ namespace WebForms.MVVM.Test
 			tela.Dicionario["opcaotexto"]
 				.Should().HaveCount(2);
 
-			tela.Dicionario["codigogrupoitens"]
+			tela.Dicionario["grupositens.codigogrupoitens"]
 				.Should().HaveCount(2);
 
 			tela.Dicionario["grupositens"]
@@ -206,12 +206,43 @@ namespace WebForms.MVVM.Test
 		{
 			var componente = new ComponentePesquisa().Tag("CodigoFamiliaItens");
 			var container = new Control();
+
 			container.Controls.Add(new Control());
 			container.Controls[0].Controls.Add(new Control());
 			container.Controls[0].Controls[0].Controls.Add(componente);
 
 			var dicionario = new DicionarioTela(null, WebFormFactory.NOMETAG);
 			var componenteEncontrado = dicionario.ConsultarObjetoEditorNoContainer(container, "CodigoFamiliaItens");
+
+			componenteEncontrado
+				.Should()
+				.NotBeNull();
+
+			componenteEncontrado
+				.Should()
+				.Be(componente);
+		}
+
+		[TestMethod]
+		public void SeAtivarCaminhoRaizDeveSerPossivelLocalizarComUmaRaizAtiva()
+		{
+			var tipo = typeof(SubObjetoDeTestes);
+			var propriedade = tipo.GetProperty("CodigoGrupoItens");
+
+			var componente = new ComponentePesquisa().Tag("PropriedadeRaiz.CodigoGrupoItens");
+			var container = new Control();
+
+			container.Controls.Add(new Control());
+			container.Controls[0].Controls.Add(new Control());
+			container.Controls[0].Controls[0].Controls.Add(componente);
+
+			var dicionario = new DicionarioTela(container, WebFormFactory.NOMETAG);
+
+			dicionario.AtivarCaminhoRaiz("PropriedadeRaiz");
+
+			var componenteEncontrado = dicionario.ConsultarComponenteEditor(propriedade.Name);
+
+			dicionario.DesativarCaminhoRaiz();
 
 			componenteEncontrado
 				.Should()

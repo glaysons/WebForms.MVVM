@@ -51,6 +51,7 @@
     <Compile Include="Framework\Comparador.cs" />
     <Compile Include="Framework\Consultador.cs" />
     <Compile Include="DicionarioTela.cs" />
+    <Compile Include="Framework\ExpressionHelper.cs" />
     <Compile Include="Layouts\LayoutObjeto.cs" />
     <Compile Include="LayoutTela.cs" />
     <Compile Include="Leitores\LeitorEnum.cs" />

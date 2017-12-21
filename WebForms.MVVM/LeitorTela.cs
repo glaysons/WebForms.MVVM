@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using WebForms.MVVM.Attributes;
@@ -30,6 +31,20 @@ namespace WebForms.MVVM
 			TCamposDaTela camposDaTela = new TCamposDaTela();
 			Ler(camposDaTela);
 			return camposDaTela;
+		}
+
+		public TSubCamposDaTela Ler<TCamposDaTela, TSubCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz) where TSubCamposDaTela : new()
+		{
+			var caminho = ExpressionHelper.CamihoDaExpressao(raiz);
+			_dicionario.AtivarCaminhoRaiz(caminho);
+			try
+			{
+				return Ler<TSubCamposDaTela>();
+			}
+			finally
+			{
+				_dicionario.DesativarCaminhoRaiz();
+			}
 		}
 
 		private void Ler(object objeto)
