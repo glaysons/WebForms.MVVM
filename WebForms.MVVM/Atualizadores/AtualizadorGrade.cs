@@ -12,8 +12,8 @@ namespace WebForms.MVVM.Atualizadores
 	public class AtualizadorGrade
 	{
 
-
 		private DicionarioTela _dicionario;
+
 		public AtualizadorGrade(DicionarioTela dicionario)
 		{
 			_dicionario = dicionario;
@@ -24,7 +24,9 @@ namespace WebForms.MVVM.Atualizadores
 			var grade = _dicionario.ConsultarComponenteEditor(propriedade, null);
 			if ((grade == null) || !(grade is DataGrid))
 			  return;
-			var objetos = ConsultarObjetosDaPropriedade(objeto, propriedade);
+			var objetos = (objeto == null)
+				? new List<object>()
+				: ConsultarObjetosDaPropriedade(objeto, propriedade);
 			PreencherGradeComSubObjetos(propriedade, (DataGrid)grade, objetos);
 		}
 

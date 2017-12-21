@@ -42,14 +42,6 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Data" />
     <Reference Include="System.XML" />
-    <Reference Include="WebForms.MVVM.Attributes, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Attributes.1.0.6\lib\net\WebForms.MVVM.Attributes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WebForms.MVVM.Interfaces, Version=1.0.6.0, Culture=neutral, PublicKeyToken=20538193cae842f2, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebForms.MVVM.Interfaces.1.0.6\lib\net\WebForms.MVVM.Interfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Atualizadores\AtualizadorEnum.cs" />
@@ -80,6 +72,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="_CreateNewNuGetPackage\DoNotModify\NuGet.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebForms.MVVM.Attributes\WebForms.MVVM.Attributes.csproj">
+      <Project>{40ce2bf7-05da-448c-a768-93907ee6379d}</Project>
+      <Name>WebForms.MVVM.Attributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebForms.MVVM.Interfaces\WebForms.MVVM.Interfaces.csproj">
+      <Project>{c2ab0baa-565a-4773-a67a-4a5a065b118f}</Project>
+      <Name>WebForms.MVVM.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

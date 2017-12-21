@@ -162,17 +162,26 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 			if (!(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem))
 				return;
 
-			const int indiceColunaTemplate = 2;
+			const int indiceColunaTemplate = 3;
+
 			var registro = (DataRowView)e.Item.DataItem;
 			var componente = new ComponentePesquisa() { ID = "txtCodItem" };
 			componente.Valor = registro.Row["CodItem"].ToString();
+
 			e.Item.Cells[indiceColunaTemplate].Controls.Add(componente.Tag("GruposItens.CodigoItemPrincipal"));
+
+			e.Item.Cells[indiceColunaTemplate].FindControl("txtCodItem")
+					.Should().NotBeNull("acabei de criar o controle!");
 
 			sender
 				.Should()
 				.NotBeNull()
 				.And
 				.BeOfType<DataGrid>();
+
+			((DataGrid)sender).ID
+				.Should()
+				.Be("grdGrupos");
 		}
 
 		private static DataTable ConsultarGrupos(int quantidadeGrupos)

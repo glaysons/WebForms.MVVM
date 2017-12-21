@@ -25,7 +25,11 @@ namespace WebForms.MVVM
 
 		public void Atualizar<TCamposDaTela>(TCamposDaTela objeto)
 		{
-			var tipoDoObjeto = typeof(TCamposDaTela);
+			AtualizarTela(typeof(TCamposDaTela), objeto);
+		}
+
+		private void AtualizarTela(Type tipoDoObjeto, object objeto)
+		{
 			foreach (PropertyInfo propriedade in tipoDoObjeto.GetProperties())
 			{
 				var componente = Consultador.ConsultarConfiguracaoDaPropriedade(propriedade);
@@ -45,7 +49,15 @@ namespace WebForms.MVVM
 
 		private void AtualizarComponente(object objeto, PropertyInfo propriedade, ComponenteAttribute componente)
 		{
-			AtualizadorObjetos.Atualizar(propriedade.Name, _dicionario, componente, propriedade.GetValue(objeto, null));
+			var valor = (objeto == null)
+				? null
+				: propriedade.GetValue(objeto, null);
+			AtualizadorObjetos.Atualizar(propriedade.Name, _dicionario, componente, valor);
+		}
+
+		public void Limpar<TCamposDaTela>()
+		{
+			AtualizarTela(typeof(TCamposDaTela), null);
 		}
 
 	}

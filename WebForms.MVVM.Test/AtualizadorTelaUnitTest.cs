@@ -50,12 +50,12 @@ namespace WebForms.MVVM.Test
 				item.Cells[1].Text
 					.Should().Be(string.Concat("Grupo número ", grupo));
 
-				item.Cells[2].FindControl("txtCodItem")
+				item.Cells[3].FindControl("txtCodItem")
 					.Should().NotBeNull()
 					.And
 					.BeAssignableTo<IControlePesquisa>();
 
-				((IControlePesquisa)item.Cells[2].Controls[0]).Valor
+				((IControlePesquisa)item.Cells[3].Controls[0]).Valor
 					.Should().Be((grupo * 10).ToString());
 
 				grupo++;
@@ -108,5 +108,43 @@ namespace WebForms.MVVM.Test
 				}
 			};
 		}
+
+		[TestMethod]
+		public void SeLimparTelaDeveLimparOsControlesCorretamente()
+		{
+			var pagina = WebFormFactory.CriarPaginaDeTestesDoObjetoDeTestes();
+			var dicionario = new DicionarioTela(pagina, WebFormFactory.NOMETAG);
+			var objeto = CriarObjetoPreenchidoParaTestes();
+
+			new AtualizadorTela(dicionario).Limpar<ObjetoDeTestes>();
+
+			pagina
+				.Should()
+				.NotBeNull();
+
+			var grade = (DataGrid)pagina.FindControl("grdGrupos");
+
+			grade
+				.Should().NotBeNull();
+
+			grade.Items
+				.Should().HaveCount(0, "Porque o DataGrid deve estar vazio!");
+
+			var radioNumerico = (RadioButtonList)pagina.FindControl("radOpcaoNumerica");
+
+			radioNumerico
+				.Should().NotBeNull();
+
+			radioNumerico.SelectedIndex
+				.Should().Be(-1);
+
+			var radioTexto = (RadioButtonList)pagina.FindControl("radOpcaoTexto");
+			radioTexto
+				.Should().NotBeNull();
+
+			radioTexto.SelectedIndex
+				.Should().Be(-1);
+		}
+
 	}
 }

@@ -14,7 +14,7 @@ namespace WebForms.MVVM.Atualizadores
 		{
 			var propriedadeVinculada = componente.PropriedadeDePesquisa ?? propriedade;
 			var objeto = dicionario.ConsultarComponenteEditor(propriedadeVinculada);
-			if (objeto == null)
+			if ((objeto == null) && (string.IsNullOrEmpty(componente.CampoDados)))
 				throw new Exception("Não foi possível encontrar algum um objeto editor vinculado a propriedade [" + propriedadeVinculada + "]!");
 			Atualizar(objeto, valor, textoRelacionado: (!string.IsNullOrEmpty(componente.PropriedadeDePesquisa)));
 		}
@@ -60,7 +60,10 @@ namespace WebForms.MVVM.Atualizadores
 				((CheckBox)objeto).Checked = Convert.ToBoolean(valor);
 
 			else if (objeto is ListControl)
-				((ListControl)objeto).SelectedValue = Convert.ToString(valor);
+				if (valor == null)
+					((ListControl)objeto).SelectedIndex = -1;
+				else
+					((ListControl)objeto).SelectedValue = Convert.ToString(valor);
 
 			else if (objeto is Label)
 				((Label)objeto).Text = Convert.ToString(valor);

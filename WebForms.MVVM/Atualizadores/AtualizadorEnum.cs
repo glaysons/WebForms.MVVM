@@ -22,11 +22,15 @@ namespace WebForms.MVVM.Atualizadores
 
 		public void PreencherPropriedadeEnum(object objeto, PropertyInfo propriedade, ComponenteAttribute componente)
 		{
-			var opcao = ConsultarOpcaoDoObjeto(objeto, propriedade);
 			var controle = _dicionario.ConsultarComponenteEditor(propriedade, componente);
 			if (controle == null)
 				return;
-			var valorDaPropriedade = _leitorEnum.ConsultarOpcaoComoTexto(propriedade.PropertyType, opcao);
+			object valorDaPropriedade = null;
+			if (objeto != null)
+			{
+				var opcao = ConsultarOpcaoDoObjeto(objeto, propriedade);
+				valorDaPropriedade = _leitorEnum.ConsultarOpcaoComoTexto(propriedade.PropertyType, opcao);
+			}
 			AtualizadorObjetos.Atualizar(controle, valorDaPropriedade);
 		}
 

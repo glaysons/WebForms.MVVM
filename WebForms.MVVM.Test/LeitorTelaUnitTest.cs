@@ -37,12 +37,12 @@ namespace WebForms.MVVM.Test
 				item.Cells[1].Text
 					.Should().Be(string.Concat("Grupo número ", grupo));
 
-				item.Cells[2].FindControl("txtCodItem")
+				item.Cells[3].FindControl("txtCodItem")
 					.Should().NotBeNull()
 					.And
 					.BeOfType<ComponentePesquisa>();
 
-				((ComponentePesquisa)item.Cells[2].Controls[0]).Valor
+				((ComponentePesquisa)item.Cells[3].Controls[0]).Valor
 					.Should().Be((grupo * 10).ToString());
 
 				grupo++;
