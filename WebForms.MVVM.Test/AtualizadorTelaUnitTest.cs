@@ -146,5 +146,42 @@ namespace WebForms.MVVM.Test
 				.Should().Be(-1);
 		}
 
+		[TestMethod]
+		public void SeAtualizarSubObjetoDaTelaDevePreencherCorretamenteOsControles()
+		{
+			var pagina = WebFormFactory.CriarPaginaDeTestesDoObjetoDeTestes();
+			var dicionario = new DicionarioTela(pagina, WebFormFactory.NOMETAG);
+			var txtGrupo = (ComponentePesquisa)pagina.FindControl("txtGrupoItens");
+
+			txtGrupo.Valor = "456";
+
+			var subObjeto = new SubObjetoDeTestes()
+			{
+				CodigoGrupoItens = 789
+			};
+
+			new AtualizadorTela(dicionario).Atualizar<ObjetoDeTestes, SubObjetoDeTestes>(o => o.GruposItens, subObjeto);
+
+			txtGrupo.Valor
+				.Should()
+				.Be("789");
+		}
+
+		[TestMethod]
+		public void SeLimparSubTelaDeveLimparOsControlesCorretamente()
+		{
+			var pagina = WebFormFactory.CriarPaginaDeTestesDoObjetoDeTestes();
+			var dicionario = new DicionarioTela(pagina, WebFormFactory.NOMETAG);
+			var txtGrupo = (ComponentePesquisa)pagina.FindControl("txtGrupoItens");
+
+			txtGrupo.Valor = "456";
+
+			new AtualizadorTela(dicionario).Limpar<ObjetoDeTestes, SubObjetoDeTestes>(o => o.GruposItens);
+
+			txtGrupo.Valor
+				.Should()
+				.BeEmpty();
+		}
+
 	}
 }

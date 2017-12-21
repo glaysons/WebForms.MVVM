@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Reflection;
 using WebForms.MVVM.Attributes;
 using WebForms.MVVM.Atualizadores;
@@ -55,9 +56,37 @@ namespace WebForms.MVVM
 			AtualizadorObjetos.Atualizar(propriedade.Name, _dicionario, componente, valor);
 		}
 
+		public void Atualizar<TCamposDaTela, TSubCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz, TSubCamposDaTela objeto)
+		{
+			var caminho = ExpressionHelper.CamihoDaExpressao(raiz);
+			_dicionario.AtivarCaminhoRaiz(caminho);
+			try
+			{
+				Atualizar(objeto);
+			}
+			finally
+			{
+				_dicionario.DesativarCaminhoRaiz();
+			}
+		}
+
 		public void Limpar<TCamposDaTela>()
 		{
 			AtualizarTela(typeof(TCamposDaTela), null);
+		}
+
+		public void Limpar<TCamposDaTela, TSubCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz)
+		{
+			var caminho = ExpressionHelper.CamihoDaExpressao(raiz);
+			_dicionario.AtivarCaminhoRaiz(caminho);
+			try
+			{
+				AtualizarTela(typeof(TSubCamposDaTela), null);
+			}
+			finally
+			{
+				_dicionario.DesativarCaminhoRaiz();
+			}
 		}
 
 	}
