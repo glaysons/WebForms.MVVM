@@ -1,27 +1,31 @@
-﻿using WebForms.MVVM.Attributes;
+﻿using System.Collections.Generic;
+using WebForms.MVVM.Attributes;
 
 namespace WebForms.MVVM.Sample
 {
 	public class ObjetoDaTela
 	{
 
-		[Componente()]
+		[Componente]
 		public string Nome { get; set; }
 
-		[Componente()]
+		[Componente]
 		public int? Idade { get; set; }
 
-		[Componente()]
+		[Componente]
 		public string Endereco { get; set; }
 
-		[Componente()]
+		[Componente]
 		public int CodigoCidade { get; set; }
 
-		[Componente()]
+		[Componente]
 		public RegistroCivil EstadoCivil { get; set; }
 
 		[Componente(PropriedadeDePesquisa = "CodigoCidade")]
 		public string NomeCidade { get; set; }
+
+		[Componente]
+		public IList<ItemDaTela> Filhos { get; set; }
 
 	}
 }

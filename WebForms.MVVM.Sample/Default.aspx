@@ -35,6 +35,42 @@
 			</asp:DropDownList><br />
 			<br />
 			<br />
+
+			<hr />
+
+			<br />
+			Filhos:<br />
+			Nome:
+			<asp:TextBox campo-q-eu-quiser="Filhos.Nome" runat="server"></asp:TextBox><br />
+
+			Idade:
+			<asp:TextBox campo-q-eu-quiser="Filhos.Idade" runat="server"></asp:TextBox><br />
+
+			Data de Nascimento: 
+			<asp:TextBox campo-q-eu-quiser="Filhos.DataDeNascimento" runat="server"></asp:TextBox><br />
+			<br />
+			<br />
+			<asp:Button runat="server" Text="Salvar" OnClick="butSalvarFilho_Click" />
+			<asp:Button runat="server" Text="Cancelar" OnClick="butCancelarFilho_Click" />
+			<br />
+			<br />
+			<asp:DataGrid ID="gradeFilhos" campo-q-eu-quiser="Filhos" runat="server" OnItemCommand="gradeFilhos_ItemCommand" AutoGenerateColumns="false">
+				<Columns>
+					<asp:ButtonColumn Text="Alterar" CommandName="Alterar"></asp:ButtonColumn>
+					<asp:ButtonColumn Text="Excluir" CommandName="Excluir"></asp:ButtonColumn>
+					<asp:BoundColumn HeaderText="Nome" DataField="Nome"></asp:BoundColumn>
+					<asp:BoundColumn HeaderText="Idade" DataField="Idade"></asp:BoundColumn>
+					<asp:BoundColumn HeaderText="Data de Nascimento" DataField="DataDeNascimento"></asp:BoundColumn>
+				</Columns>
+			</asp:DataGrid> <br />
+			<br />
+			<br />
+			<br />
+
+			<hr />
+
+			<br />
+			<br />
 			<br />
 			<asp:Button Text="LER" runat="server" OnClick="butLer_Click" />
 			<asp:Button Text="ATUALIZAR" runat="server" OnClick="butAtualizar_Click" />

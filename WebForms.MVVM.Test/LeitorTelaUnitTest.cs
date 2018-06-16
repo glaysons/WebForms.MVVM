@@ -140,13 +140,11 @@ namespace WebForms.MVVM.Test
 
 			var leitor = new LeitorTela(dicionario);
 
-			var subObjeto = leitor.Ler<ObjetoDeTestes, SubObjetoDeTestes>(o => o.GruposItens);
+			var subObjeto = (SubObjetoDeTestes) leitor.Ler<ObjetoDeTestes>(o => o.GruposItens);
 
 			subObjeto
 				.Should()
-				.NotBeNull()
-				.And
-				.BeOfType<SubObjetoDeTestes>();
+				.NotBeNull();
 
 			subObjeto.CodigoGrupoItens
 				.Should()

@@ -48,6 +48,7 @@
     <Compile Include="Atualizadores\AtualizadorGrade.cs" />
     <Compile Include="Atualizadores\AtualizadorObjetos.cs" />
     <Compile Include="AtualizadorTela.cs" />
+    <Compile Include="Exceptions\PropriedadeInvalidaException.cs" />
     <Compile Include="Framework\Comparador.cs" />
     <Compile Include="Framework\Consultador.cs" />
     <Compile Include="DicionarioTela.cs" />

@@ -24,9 +24,10 @@ namespace WebForms.MVVM
 			_atualizadorEnum = new AtualizadorEnum(_dicionario);
 		}
 
-		public void Atualizar<TCamposDaTela>(TCamposDaTela objeto)
+		public void Atualizar(object objeto)
 		{
-			AtualizarTela(typeof(TCamposDaTela), objeto);
+			if (objeto != null)
+				AtualizarTela(objeto.GetType(), objeto);
 		}
 
 		private void AtualizarTela(Type tipoDoObjeto, object objeto)
@@ -56,7 +57,7 @@ namespace WebForms.MVVM
 			AtualizadorObjetos.Atualizar(propriedade.Name, _dicionario, componente, valor);
 		}
 
-		public void Atualizar<TCamposDaTela, TSubCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz, TSubCamposDaTela objeto)
+		public void Atualizar<TCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz, object objeto)
 		{
 			var caminho = ExpressionHelper.CamihoDaExpressao(raiz);
 			_dicionario.AtivarCaminhoRaiz(caminho);
@@ -75,13 +76,18 @@ namespace WebForms.MVVM
 			AtualizarTela(typeof(TCamposDaTela), null);
 		}
 
-		public void Limpar<TCamposDaTela, TSubCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz)
+		public void Limpar<TCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz)
 		{
 			var caminho = ExpressionHelper.CamihoDaExpressao(raiz);
+
+			var propriedade = typeof(TCamposDaTela).GetProperty(caminho);
+			if ((propriedade == null) || (!Comparador.EhUmaListaGenerica(propriedade.PropertyType)))
+				return;
+
 			_dicionario.AtivarCaminhoRaiz(caminho);
 			try
 			{
-				AtualizarTela(typeof(TSubCamposDaTela), null);
+				AtualizarTela(propriedade.PropertyType.GetGenericArguments()[0], null);
 			}
 			finally
 			{

@@ -160,7 +160,7 @@ namespace WebForms.MVVM.Test
 				CodigoGrupoItens = 789
 			};
 
-			new AtualizadorTela(dicionario).Atualizar<ObjetoDeTestes, SubObjetoDeTestes>(o => o.GruposItens, subObjeto);
+			new AtualizadorTela(dicionario).Atualizar<ObjetoDeTestes>(o => o.GruposItens, subObjeto);
 
 			txtGrupo.Valor
 				.Should()
@@ -176,7 +176,7 @@ namespace WebForms.MVVM.Test
 
 			txtGrupo.Valor = "456";
 
-			new AtualizadorTela(dicionario).Limpar<ObjetoDeTestes, SubObjetoDeTestes>(o => o.GruposItens);
+			new AtualizadorTela(dicionario).Limpar<ObjetoDeTestes>(o => o.GruposItens);
 
 			txtGrupo.Valor
 				.Should()

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
 using WebForms.MVVM.Attributes;
 using WebForms.MVVM.Framework;
 using WebForms.MVVM.Leitores;
@@ -33,13 +30,21 @@ namespace WebForms.MVVM
 			return camposDaTela;
 		}
 
-		public TSubCamposDaTela Ler<TCamposDaTela, TSubCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz) where TSubCamposDaTela : new()
+		public object Ler<TCamposDaTela>(Expression<Func<TCamposDaTela, object>> raiz)
 		{
 			var caminho = ExpressionHelper.CamihoDaExpressao(raiz);
+
+			var propriedade = typeof(TCamposDaTela).GetProperty(caminho);
+			if ((propriedade == null) || (!Comparador.EhUmaListaGenerica(propriedade.PropertyType)))
+				throw new Exceptions.PropriedadeInvalidaException(caminho);
+
 			_dicionario.AtivarCaminhoRaiz(caminho);
 			try
 			{
-				return Ler<TSubCamposDaTela>();
+				var tipo = propriedade.PropertyType.GetGenericArguments()[0];
+				var camposDaTela = Activator.CreateInstance(tipo);
+				Ler(camposDaTela);
+				return camposDaTela;
 			}
 			finally
 			{

@@ -30,7 +30,12 @@ namespace WebForms.MVVM.Framework
 		public static ComponenteAttribute ConsultarConfiguracaoDaPropriedade(PropertyInfo propriedade)
 		{
 			foreach (var atributo in propriedade.GetCustomAttributes(typeof(ComponenteAttribute), inherit: true))
-				return (ComponenteAttribute)atributo;
+			{
+				var componente = (ComponenteAttribute)atributo;
+				if (string.IsNullOrEmpty(componente.CampoDados))
+					componente.CampoDados = propriedade.Name;
+				return componente;
+			}
 			return null;
 		}
 
