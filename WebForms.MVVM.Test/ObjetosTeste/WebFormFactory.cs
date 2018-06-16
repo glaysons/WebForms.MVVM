@@ -36,6 +36,9 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 			pagina.Controls.Add(new ComponenteTitulo() { ID = "lblGrupoItens" }.Tag("GruposItens.CodigoGrupoItens"));
 			pagina.Controls.Add(new ComponentePesquisa() { ID = "txtGrupoItens" }.Tag("GruposItens.CodigoGrupoItens"));
 
+			pagina.Controls.Add(new ComponenteTitulo() { ID = "lblPropriedadeVazia" }.Tag("PropriedadeVazia"));
+			pagina.Controls.Add(new ComponentePesquisa() { ID = "txtPropriedadeVazia" }.Tag("PropriedadeVazia"));
+
 			pagina.Controls.Add(new DataGrid() { ID = "grdGrupos", AutoGenerateColumns = false }.Tag("GruposItens"));
 			var grupos = (DataGrid)pagina.FindControl("grdGrupos");
 			ConfigurarGrade(grupos);
@@ -140,6 +143,9 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 
 			var radioTexto = (RadioButtonList)pagina.FindControl("radOpcaoTexto");
 			radioTexto.SelectedValue = "C";
+
+			var propriedadeVazia = (ComponentePesquisa)pagina.FindControl("txtPropriedadeVazia");
+			propriedadeVazia.Valor = string.Empty;
 
 			return pagina;
 		}

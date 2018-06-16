@@ -6,9 +6,11 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 	public class ComponentePesquisa : UserControl, IControlePesquisa
 	{
 
-		public string Valor { get; set; }
+		public object Valor { get; set; }
 
 		public string TextoResultado { get; set; }
+
+		public bool Editavel { get; set; }
 
 	}
 }

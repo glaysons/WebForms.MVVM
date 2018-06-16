@@ -56,7 +56,7 @@ namespace WebForms.MVVM.Test
 					.BeAssignableTo<IControlePesquisa>();
 
 				((IControlePesquisa)item.Cells[3].Controls[0]).Valor
-					.Should().Be((grupo * 10).ToString());
+					.Should().Be(grupo * 10);
 
 				grupo++;
 			}
@@ -164,7 +164,7 @@ namespace WebForms.MVVM.Test
 
 			txtGrupo.Valor
 				.Should()
-				.Be("789");
+				.Be(789);
 		}
 
 		[TestMethod]
@@ -180,7 +180,7 @@ namespace WebForms.MVVM.Test
 
 			txtGrupo.Valor
 				.Should()
-				.BeEmpty();
+				.BeNull();
 		}
 
 	}

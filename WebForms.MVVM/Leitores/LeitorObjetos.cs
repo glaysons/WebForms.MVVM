@@ -24,8 +24,8 @@ namespace WebForms.MVVM.Leitores
 			if (objeto == null)
 				return null;
 
-			if (objeto is IControlePesquisa)
-				return ConsultarValorDoObjetoPersonalizado((IControlePesquisa)objeto, textoRelacionado);
+			if (objeto is IControle)
+				return ConsultarValorDoObjetoPersonalizado((IControle)objeto, textoRelacionado);
 
 			if (objeto is WebControl)
 				return ConsultarValorDoObjetoWebControl(objeto, textoRelacionado);
@@ -36,10 +36,10 @@ namespace WebForms.MVVM.Leitores
 			throw new Exception("Não é possível realizar a leitura de valores de objetos do tipo [" + objeto.GetType().Name + "]");
 		}
 
-		private static object ConsultarValorDoObjetoPersonalizado(IControlePesquisa objeto, bool textoRelacionado)
+		private static object ConsultarValorDoObjetoPersonalizado(IControle objeto, bool textoRelacionado)
 		{
-			if (textoRelacionado)
-				return objeto.TextoResultado;
+			if ((textoRelacionado) && (objeto is IControlePesquisa))
+				return ((IControlePesquisa)objeto).TextoResultado;
 			return objeto.Valor;
 		}
 

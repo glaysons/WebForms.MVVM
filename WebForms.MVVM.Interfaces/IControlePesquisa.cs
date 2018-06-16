@@ -1,9 +1,7 @@
 ﻿namespace WebForms.MVVM.Interfaces
 {
-	public interface IControlePesquisa
+	public interface IControlePesquisa : IControle
 	{
-
-		string Valor { get; set; }
 
 		string TextoResultado { get; set; }
 

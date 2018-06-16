@@ -77,8 +77,8 @@ namespace WebForms.MVVM.Layouts
 		{
 			get
 			{
-				if (_componente is IControleEditavel)
-					return ((IControleEditavel)_componente).Editavel;
+				if (_componente is IControle)
+					return ((IControle)_componente).Editavel;
 
 				if (_componente is WebControl)
 					return ((WebControl)_componente).Enabled;
@@ -90,8 +90,8 @@ namespace WebForms.MVVM.Layouts
 			}
 			set
 			{
-				if (_componente is IControleEditavel)
-					((IControleEditavel)_componente).Editavel = value;
+				if (_componente is IControle)
+					((IControle)_componente).Editavel = value;
 
 				else if (_componente is WebControl)
 					((WebControl)_componente).Enabled = value;

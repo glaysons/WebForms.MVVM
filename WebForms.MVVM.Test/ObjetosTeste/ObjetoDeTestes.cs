@@ -27,6 +27,9 @@ namespace WebForms.MVVM.Test.ObjetosTeste
 		[Componente(CampoDados = "Nome")]
 		public string Nome { get; set; }
 
+		[Componente(CampoDados = "PropriedadeVazia")]
+		public int? PropriedadeVazia { get; set; }
+
 		public int? PropriedadeNaoConfigurada { get; set; }
 
 	}

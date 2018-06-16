@@ -24,8 +24,8 @@ namespace WebForms.MVVM.Atualizadores
 			if (objeto == null)
 				return;
 
-			if (objeto is IControlePesquisa)
-				AtualizarValorDoObjetoPersonalizado((IControlePesquisa)objeto, valor, textoRelacionado);
+			if (objeto is IControle)
+				AtualizarValorDoObjetoPersonalizado((IControle)objeto, valor, textoRelacionado);
 
 			else if (objeto is WebControl)
 				AtualizarValorDoObjetoWebControl(objeto, valor);
@@ -37,12 +37,12 @@ namespace WebForms.MVVM.Atualizadores
 				throw new Exception("Não é possível realizar a atualização de valores de objetos do tipo [" + objeto.GetType().Name + "]");
 		}
 
-		private static void AtualizarValorDoObjetoPersonalizado(IControlePesquisa objeto, object valor, bool textoRelacionado)
+		private static void AtualizarValorDoObjetoPersonalizado(IControle objeto, object valor, bool textoRelacionado)
 		{
-			if (textoRelacionado)
-				objeto.TextoResultado = Convert.ToString(valor);
+			if ((textoRelacionado) && (objeto is IControlePesquisa))
+				((IControlePesquisa)objeto).TextoResultado = Convert.ToString(valor);
 			else
-				objeto.Valor = Convert.ToString(valor);
+				objeto.Valor = valor;
 		}
 
 		private static void AtualizarValorDoObjetoWebControl(Control objeto, object valor)

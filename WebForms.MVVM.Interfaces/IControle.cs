@@ -1,7 +1,9 @@
 ﻿namespace WebForms.MVVM.Interfaces
 {
-	public interface IControleEditavel
+	public interface IControle
 	{
+
+		object Valor { get; set; }
 
 		bool Editavel { get; set; }
 

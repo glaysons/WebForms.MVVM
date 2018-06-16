@@ -112,6 +112,10 @@ namespace WebForms.MVVM.Test
 			objeto.OpcaoTexto
 				.Should()
 				.Be(EnumStringDeTestes.OpcaoC);
+
+			objeto.PropriedadeVazia
+				.Should()
+				.BeNull();
 		}
 
 		[TestMethod]

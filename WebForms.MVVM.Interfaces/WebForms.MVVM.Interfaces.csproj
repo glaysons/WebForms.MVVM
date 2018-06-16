@@ -39,7 +39,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IControleEditavel.cs" />
+    <Compile Include="IControle.cs" />
     <Compile Include="IControlePesquisa.cs" />
     <Compile Include="IControleTitulo.cs" />
     <Compile Include="ILayoutObjeto.cs" />
